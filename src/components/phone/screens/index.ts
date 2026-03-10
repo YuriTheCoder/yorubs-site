@@ -1,0 +1,7 @@
+export { HomeScreen } from "./HomeScreen"
+export { OrisaScreen } from "./OrisaScreen"
+export { ProverbScreen } from "./ProverbScreen"
+export { GamificationScreen } from "./GamificationScreen"
+export { ReviewScreen } from "./ReviewScreen"
+export { ProScreen } from "./ProScreen"
+export { DownloadScreen } from "./DownloadScreen"
