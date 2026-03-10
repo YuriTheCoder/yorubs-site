@@ -5,6 +5,10 @@ export const LINKS = {
   appStore: "/pre-registro",
   googlePlay: "/pre-registro",
   download: "/pre-registro",
+  instagram: "https://instagram.com/yorubs.app",
+  tiktok: "https://tiktok.com/@yorubsapp",
+  youtube: "https://youtube.com/@yorubsapp",
+  x: "https://x.com/yorubsapp",
 } as const
 
 // === HERO ===

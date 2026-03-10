@@ -236,7 +236,7 @@ function StaticChatMockup() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/images/aroba-mascot.png"
-          alt=""
+          alt="Àróbá, o tutor de IA do Yorubs"
           className="w-9 h-9 rounded-full object-cover border border-terracotta/30"
         />
         <div>

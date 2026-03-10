@@ -1,4 +1,5 @@
 import { createMetadata } from "@/lib/metadata"
+import { organizationJsonLd } from "@/lib/structured-data"
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 import { TextReveal } from "@/components/animations/TextReveal"
@@ -35,6 +36,10 @@ export const metadata = createMetadata({
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}
+      />
       <Navbar />
       <main className="pt-20">
         {/* ==============================
@@ -302,7 +307,7 @@ export default function AboutPage() {
                   year: "2026",
                   title: "Lançamento",
                   description:
-                    "Lançamento global na App Store e Google Play. Soft launch no Brasil e Nigeria, seguido de expansão para toda a diáspora africana.",
+                    "Lançamento em breve na App Store e Google Play. Soft launch no Brasil e Nigéria, seguido de expansão para toda a diáspora africana.",
                   side: "right" as const,
                 },
               ].map((step, i) => (

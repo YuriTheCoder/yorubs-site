@@ -2,7 +2,7 @@ import Link from "next/link"
 import { createMetadata } from "@/lib/metadata"
 
 export const metadata = createMetadata({
-  title: "Pagina Nao Encontrada",
+  title: "Página Não Encontrada",
   description: "A página que você procura não existe.",
   path: "/404",
 })

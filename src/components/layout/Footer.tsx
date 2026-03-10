@@ -4,7 +4,7 @@ import { useRef } from "react"
 import Link from "next/link"
 import { gsap, useGSAP } from "@/lib/gsap-plugins"
 import { StoreBadges } from "@/components/shared/StoreBadges"
-import { FOOTER } from "@/lib/constants"
+import { FOOTER, LINKS } from "@/lib/constants"
 import { Instagram, Twitter, Youtube } from "lucide-react"
 
 export function Footer() {
@@ -46,15 +46,18 @@ export function Footer() {
               O app gamificado para aprender a língua Yorùbá com tutor IA e conteúdo cultural.
             </p>
             <div className="flex items-center gap-4 mt-6">
-              <span className="text-text-muted cursor-default" aria-label="Instagram - Em breve" title="Em breve">
+              <a href={LINKS.instagram} target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-gold transition-colors" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
-              </span>
-              <span className="text-text-muted cursor-default" aria-label="Twitter - Em breve" title="Em breve">
+              </a>
+              <a href={LINKS.x} target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-gold transition-colors" aria-label="X (Twitter)">
                 <Twitter className="w-5 h-5" />
-              </span>
-              <span className="text-text-muted cursor-default" aria-label="YouTube - Em breve" title="Em breve">
+              </a>
+              <a href={LINKS.youtube} target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-gold transition-colors" aria-label="YouTube">
                 <Youtube className="w-5 h-5" />
-              </span>
+              </a>
+              <a href={LINKS.tiktok} target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-gold transition-colors" aria-label="TikTok">
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.75a8.18 8.18 0 004.76 1.52V6.84a4.84 4.84 0 01-1-.15z"/></svg>
+              </a>
             </div>
           </div>
 

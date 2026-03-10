@@ -6,7 +6,7 @@ import { Footer } from "@/components/layout/Footer"
 import { BlogContent } from "@/components/blog/BlogContent"
 import { ShareButtons } from "@/components/blog/ShareButtons"
 import { BLOG_POSTS, getRelatedPosts } from "@/lib/blog-posts"
-import { articleJsonLd } from "@/lib/structured-data"
+import { articleJsonLd, breadcrumbJsonLd } from "@/lib/structured-data"
 import { ArrowLeft, Clock, User, ArrowRight, Download } from "lucide-react"
 import { LINKS } from "@/lib/constants"
 
@@ -36,8 +36,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     description: post.excerpt,
     url: `https://yorubs.com/blog/${slug}`,
     datePublished: post.date,
+    dateModified: post.date,
     author: post.author,
   })
+
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", url: "https://yorubs.com" },
+    { name: "Blog", url: "https://yorubs.com/blog" },
+    { name: post.title, url: `https://yorubs.com/blog/${slug}` },
+  ])
 
   return (
     <>
@@ -182,6 +189,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
     </>
   )
