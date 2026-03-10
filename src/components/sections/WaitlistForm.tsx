@@ -117,15 +117,15 @@ export function WaitlistForm() {
         {/* Referral section */}
         <div className="bg-background-secondary rounded-xl p-5 mb-5">
           <p className="text-sm text-text-secondary mb-3">
-            Seu código de indicação:
+            Seu link de indicação:
           </p>
           <div className="flex items-center gap-2 justify-center mb-4">
-            <code className="text-lg font-mono text-gold bg-background/50 px-4 py-2 rounded-lg border border-gold/20">
-              {referralCode}
+            <code className="text-sm font-mono text-gold bg-background/50 px-3 py-2 rounded-lg border border-gold/20 truncate max-w-[280px] sm:max-w-none select-all">
+              {shareUrl}
             </code>
             <button
               onClick={copyLink}
-              className="p-2 rounded-lg bg-background/50 border border-border hover:border-gold/30 transition-colors"
+              className="p-2 rounded-lg bg-background/50 border border-border hover:border-gold/30 transition-colors flex-shrink-0"
               aria-label="Copiar link"
             >
               {copied ? (
@@ -136,7 +136,7 @@ export function WaitlistForm() {
             </button>
           </div>
           <p className="text-xs text-text-muted">
-            Compartilhe e suba na fila!
+            {copied ? "Link copiado!" : "Compartilhe e suba na fila!"}
           </p>
         </div>
 
