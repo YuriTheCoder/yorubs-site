@@ -264,10 +264,12 @@ export const FOOTER = {
     empresa: [
       { label: "Sobre", href: "/about" },
       { label: "Contato", href: "/contact" },
+      { label: "Suporte", href: "/support" },
     ],
     legal: [
       { label: "Privacidade", href: "/privacy" },
       { label: "Termos", href: "/terms" },
+      { label: "Excluir Conta", href: "/delete-account" },
       { label: "Cookies", href: "/privacy#cookies" },
     ],
   },
