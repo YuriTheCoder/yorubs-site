@@ -118,21 +118,19 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <BlogContent content={post.content} />
 
             {/* CTA Banner */}
-            <div className="mt-16 bg-gradient-to-br from-gold/[0.08] to-terracotta/[0.05] border border-gold/20 rounded-2xl p-8 md:p-10 text-center">
+            <Link
+              href="/pre-registro"
+              className="mt-16 bg-gradient-to-br from-gold/[0.08] to-terracotta/[0.05] border border-gold/20 rounded-2xl p-8 md:p-10 text-center block hover:border-gold/40 transition-colors"
+            >
               <Download className="w-8 h-8 text-gold mx-auto mb-3" />
               <h3 className="text-2xl font-serif mb-2">Quer aprender Yorùbá?</h3>
               <p className="text-text-secondary mb-6 max-w-md mx-auto">
-                Baixe o Yorubs gratuitamente e comece sua jornada hoje. Lições interativas, tutor IA
-                e muito mais.
+                O Yorubs está quase pronto. Cadastre-se na lista de espera e seja notificado no lançamento.
               </p>
-              <Link
-                href={LINKS.download}
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-gold text-background font-semibold rounded-full hover:bg-gold-light transition-colors"
-              >
-                Baixar Grátis
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
+              <span className="inline-flex items-center gap-2 px-7 py-3.5 bg-gold text-background font-semibold rounded-full">
+                Garantir Meu Lugar
+              </span>
+            </Link>
 
             {/* Related Posts */}
             {related.length > 0 && (

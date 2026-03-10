@@ -186,7 +186,7 @@ export function HeroSection() {
 
             <div className="flex flex-wrap items-center gap-4">
               <MagneticButton
-                href={LINKS.download}
+                href="/pre-registro"
                 className="inline-flex items-center px-8 py-4 bg-gold text-background font-semibold rounded-full hover:bg-gold-light hover:shadow-glow-gold active:scale-95 transition-all duration-300"
               >
                 {HERO.cta}
@@ -214,7 +214,7 @@ export function HeroSection() {
                 Android
               </span>
               <span className="w-1 h-1 rounded-full bg-text-muted/40" />
-              <span className="opacity-70">100% Gratuito</span>
+              <span className="opacity-70">Pré-registro aberto</span>
             </div>
           </div>
 

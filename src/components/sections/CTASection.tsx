@@ -4,9 +4,8 @@ import { useRef } from "react"
 import { gsap, useGSAP } from "@/lib/gsap-plugins"
 import { TextReveal } from "@/components/animations/TextReveal"
 import { MagneticButton } from "@/components/animations/MagneticButton"
-import { StoreBadges } from "@/components/shared/StoreBadges"
 import { PhoneFrame } from "@/components/phone/PhoneFrame"
-import { DownloadScreen } from "@/components/phone/screens/DownloadScreen"
+import { WaitlistScreen } from "@/components/phone/screens/WaitlistScreen"
 import { CTA, LINKS } from "@/lib/constants"
 
 export function CTASection() {
@@ -59,19 +58,17 @@ export function CTASection() {
         {/* Mobile phone */}
         <div ref={mobilePhoneRef} className="lg:hidden flex justify-center my-10" aria-hidden="true">
           <PhoneFrame size="md">
-            <DownloadScreen />
+            <WaitlistScreen />
           </PhoneFrame>
         </div>
 
         <div className="mt-10 flex flex-col items-center gap-6">
           <MagneticButton
-            href={LINKS.download}
+            href="/pre-registro"
             className="inline-flex items-center px-8 py-4 bg-gold text-background font-semibold rounded-full hover:bg-gold-light hover:shadow-glow-gold active:scale-95 transition-all duration-300"
           >
             {CTA.cta}
           </MagneticButton>
-
-          <StoreBadges />
         </div>
       </div>
     </section>

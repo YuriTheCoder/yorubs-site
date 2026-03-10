@@ -2,17 +2,17 @@ import { Music, Bot, Scroll, BookOpen, Trophy, WifiOff, type LucideIcon } from "
 
 // === LINKS ===
 export const LINKS = {
-  appStore: "/download",
-  googlePlay: "/download",
-  download: "/download",
+  appStore: "/pre-registro",
+  googlePlay: "/pre-registro",
+  download: "/pre-registro",
 } as const
 
 // === HERO ===
 export const HERO = {
   title: "Aprenda Yorùbá.",
   highlightWord: "Yorùbá",
-  subtitle: "O app gamificado com tutor IA, provérbios diários e a cultura viva dos Òrìṣà. Disponível para iOS e Android.",
-  cta: "Baixar Grátis",
+  subtitle: "O app gamificado com tutor IA, provérbios diários e a cultura viva dos Òrìṣà. Cadastre-se para acesso antecipado.",
+  cta: "Pré-Registro",
   ctaSecondary: "Saiba Mais",
 } as const
 
@@ -141,8 +141,9 @@ export const PRICING = {
   plans: [
     {
       name: "Gratuito",
-      price: 0,
+      price: -1,
       period: "",
+      priceLabel: "Grátis",
       features: [
         "3 lições por unidade",
         "5 vidas (regeneram a cada 6h)",
@@ -156,9 +157,9 @@ export const PRICING = {
     },
     {
       name: "Língua",
-      price: 24.90,
-      period: "/mês",
-      yearlyPrice: 199.90,
+      price: -1,
+      period: "",
+      priceLabel: "Em breve",
       features: [
         "Lições ilimitadas",
         "Vidas infinitas",
@@ -169,18 +170,17 @@ export const PRICING = {
         "Sem anúncios",
         "2 dispositivos",
       ],
-      cta: "Assinar Língua",
+      cta: "Pré-Registro",
       highlighted: false,
       trial: "7 dias grátis",
     },
     {
       name: "Sagrado",
-      price: 49.90,
-      period: "/mês",
-      yearlyPrice: 399.90,
-      lifetimePrice: 899.90,
+      price: -1,
+      period: "",
+      priceLabel: "Em breve",
       features: [
-        "Tudo do Lingua +",
+        "Tudo do Língua +",
         "Biblioteca Sagrada completa",
         "19 Òrìṣà com cânticos e oríkì",
         "Culinária tradicional",
@@ -189,15 +189,16 @@ export const PRICING = {
         "Streak freeze ilimitado",
         "3 dispositivos",
       ],
-      cta: "Assinar Sagrado",
+      cta: "Pré-Registro",
       highlighted: true,
       badge: "Mais Popular",
       trial: "7 dias grátis",
     },
     {
       name: "Templo",
-      price: 99.90,
-      period: "/mês",
+      price: -1,
+      period: "",
+      priceLabel: "Em breve",
       features: [
         "Tudo do Sagrado +",
         "Suporte prioritário",
@@ -205,7 +206,7 @@ export const PRICING = {
         "Acesso antecipado a novidades",
         "5 dispositivos",
       ],
-      cta: "Assinar Templo",
+      cta: "Pré-Registro",
       highlighted: false,
     },
   ],
@@ -223,7 +224,7 @@ export const FAQ_ITEMS = [
   },
   {
     question: "Quais são os planos disponíveis?",
-    answer: "Temos 4 planos: Gratuito (básico com anúncios), Língua (lições ilimitadas e sem anúncios), Sagrado (inclui Biblioteca Sagrada completa e IA ilimitada) e Templo (tudo + suporte prioritário e 5 dispositivos).",
+    answer: "Temos 4 planos: Gratuito (básico com anúncios), Língua (lições ilimitadas e sem anúncios), Sagrado (Biblioteca Sagrada completa e IA ilimitada) e Templo (tudo + suporte prioritário e 5 dispositivos). Os preços serão divulgados em breve.",
   },
   {
     question: "O app tem pronúncia com áudio?",
@@ -242,8 +243,8 @@ export const FAQ_ITEMS = [
 // === CTA ===
 export const CTA = {
   title: "Comece Sua Jornada no Yorùbá Hoje",
-  subtitle: "Comece gratuitamente e reconecte com suas raízes culturais.",
-  cta: "Baixar Grátis Agora",
+  subtitle: "Cadastre-se gratuitamente e seja notificado no lançamento.",
+  cta: "Garantir Meu Lugar",
 } as const
 
 // === FOOTER ===
@@ -253,7 +254,7 @@ export const FOOTER = {
     produto: [
       { label: "Como Funciona", href: "/features" },
       { label: "Preços", href: "/pricing" },
-      { label: "Download", href: "/download" },
+      { label: "Pré-Registro", href: "/pre-registro" },
       { label: "Blog", href: "/blog" },
     ],
     empresa: [
@@ -275,6 +276,7 @@ export const NAV_LINKS = [
   { label: "Preços", href: "/pricing" },
   { label: "Blog", href: "/blog" },
   { label: "Sobre", href: "/about" },
+  { label: "Pré-Registro", href: "/pre-registro" },
 ] as const
 
 // === FAQ CATEGORIES (standalone page) ===
@@ -304,11 +306,11 @@ export const FAQ_CATEGORIES = {
   Pagamentos: [
     {
       question: "Quais são os planos disponíveis?",
-      answer: "Temos 4 planos: Gratuito (básico com anúncios), Língua (R$ 24,90/mes — lições ilimitadas e sem anúncios), Sagrado (R$ 49,90/mes — Biblioteca Sagrada completa e IA ilimitada) e Templo (R$ 99,90/mes — tudo + suporte prioritário e 5 dispositivos).",
+      answer: "Temos 4 planos: Gratuito (básico com anúncios), Língua (lições ilimitadas e sem anúncios), Sagrado (Biblioteca Sagrada completa e IA ilimitada) e Templo (tudo + suporte prioritário e 5 dispositivos). Os preços serão divulgados em breve.",
     },
     {
       question: "Quanto custam os planos pagos?",
-      answer: "Língua: R$ 24,90/mes ou R$ 199,90/ano. Sagrado: R$ 49,90/mes, R$ 399,90/ano ou R$ 899,90 vitalício. Templo: R$ 99,90/mes. Os planos Língua e Sagrado oferecem 7 dias de teste gratuito.",
+      answer: "Os preços dos planos pagos serão divulgados em breve. Os planos Língua e Sagrado oferecerão 7 dias de teste gratuito.",
     },
     {
       question: "Como funciona o período de teste gratuito?",

@@ -84,7 +84,7 @@ export function Navbar() {
               href={LINKS.download}
               className="inline-flex items-center px-6 py-2.5 bg-gold text-background font-semibold text-sm rounded-full hover:bg-gold-light transition-colors"
             >
-              Baixar App
+              Pré-Registro
             </MagneticButton>
           </div>
 
@@ -120,7 +120,7 @@ export function Navbar() {
           className="mobile-nav-link mt-4 px-8 py-3 bg-gold text-background font-semibold rounded-full"
           onClick={() => setIsOpen(false)}
         >
-          Baixar App
+          Pré-Registro
         </Link>
       </div>
     </>
