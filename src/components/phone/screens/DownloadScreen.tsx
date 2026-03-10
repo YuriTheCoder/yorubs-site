@@ -35,24 +35,24 @@ export function DownloadScreen() {
         </p>
 
         {/* Heading */}
-        <span className="text-[12px] font-bold text-gold mb-4">Baixe Grátis</span>
+        <span className="text-[12px] font-bold text-gold mb-4">Em Breve</span>
 
         {/* Mini store badges */}
         <div className="flex items-center gap-2 mb-3">
           <div className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-background-card border border-border">
             <span className="text-[10px]">🍎</span>
-            <span className="text-[9px] text-text-primary">App Store</span>
+            <span className="text-[9px] text-text-secondary">App Store</span>
           </div>
           <div className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-background-card border border-border">
             <span className="text-[10px]">▶️</span>
-            <span className="text-[9px] text-text-primary">Google Play</span>
+            <span className="text-[9px] text-text-secondary">Google Play</span>
           </div>
         </div>
 
         {/* CTA */}
         <div className="w-full px-4">
-          <div className="w-full py-2.5 rounded-full bg-gold text-center text-[11px] font-bold text-background">
-            Comecar Agora
+          <div className="w-full py-2.5 rounded-full bg-gold/20 border border-gold/30 text-center text-[11px] font-bold text-gold">
+            Em Breve
           </div>
         </div>
       </div>

@@ -43,21 +43,8 @@ export function PricingSection({ centered = false }: { centered?: boolean } = {}
 
                 <div className="mt-3 mb-4">
                   <span className="text-3xl font-bold">
-                    {plan.price === 0 ? "R$ 0" : `R$ ${plan.price.toFixed(2).replace(".", ",")}`}
+                    {'priceLabel' in plan ? plan.priceLabel : "—"}
                   </span>
-                  {plan.period && (
-                    <span className="text-text-secondary text-sm">{plan.period}</span>
-                  )}
-                  {'yearlyPrice' in plan && plan.yearlyPrice && (
-                    <div className="text-xs text-text-muted mt-1">
-                      ou R$ {(plan.yearlyPrice as number).toFixed(2).replace(".", ",")}/ano
-                    </div>
-                  )}
-                  {'lifetimePrice' in plan && plan.lifetimePrice && (
-                    <div className="text-xs text-text-muted">
-                      ou R$ {(plan.lifetimePrice as number).toFixed(2).replace(".", ",")} vitalício
-                    </div>
-                  )}
                 </div>
 
                 <ul className="space-y-2 mb-6 flex-1">

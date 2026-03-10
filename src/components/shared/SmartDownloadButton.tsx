@@ -1,10 +1,5 @@
 "use client"
 
-import { useDeviceDetect } from "@/hooks/useDeviceDetect"
-import { LINKS } from "@/lib/constants"
-import Link from "next/link"
-import { Smartphone, Monitor, Apple } from "lucide-react"
-
 function AppleLogo({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 384 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -22,81 +17,32 @@ function GooglePlayLogo({ className }: { className?: string }) {
 }
 
 export function SmartDownloadButton() {
-  const { isMobile, isDesktop } = useDeviceDetect()
-
-  // Detect iOS vs Android from user agent (client-side only)
-  const isIOS = typeof navigator !== "undefined" && /iPad|iPhone|iPod/.test(navigator.userAgent)
-  const isAndroid = typeof navigator !== "undefined" && /Android/.test(navigator.userAgent)
-
-  const platformLabel = isIOS
-    ? "um iPhone"
-    : isAndroid
-      ? "um Android"
-      : isMobile
-        ? "um dispositivo móvel"
-        : "um computador"
-
-  const platformIcon = isIOS || isAndroid ? (
-    <Smartphone className="w-5 h-5" />
-  ) : (
-    <Monitor className="w-5 h-5" />
-  )
-
   return (
     <div className="flex flex-col items-center gap-6">
-      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background-card border border-border text-sm text-text-secondary">
-        {platformIcon}
-        <span>
-          Você está em <strong className="text-text-primary">{platformLabel}</strong>
-        </span>
+      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/30 text-sm text-gold">
+        <span>Em breve para iOS e Android</span>
       </div>
 
-      {isIOS ? (
-        <Link
-          href={LINKS.appStore}
-          className="inline-flex items-center gap-3 bg-text-primary text-background px-8 py-4 rounded-2xl hover:opacity-90 transition-opacity text-lg font-semibold"
+      <div className="flex flex-wrap items-center justify-center gap-4">
+        <div
+          className="inline-flex items-center gap-3 bg-text-primary/10 text-text-secondary px-6 py-3.5 rounded-xl border border-border cursor-default"
         >
-          <AppleLogo className="w-7 h-7" />
-          Baixar na App Store
-        </Link>
-      ) : isAndroid ? (
-        <Link
-          href={LINKS.googlePlay}
-          className="inline-flex items-center gap-3 bg-text-primary text-background px-8 py-4 rounded-2xl hover:opacity-90 transition-opacity text-lg font-semibold"
-        >
-          <GooglePlayLogo className="w-6 h-6" />
-          Baixar no Google Play
-        </Link>
-      ) : (
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          <Link
-            href={LINKS.appStore}
-            className="inline-flex items-center gap-3 bg-text-primary text-background px-6 py-3.5 rounded-xl hover:opacity-90 transition-opacity font-semibold"
-          >
-            <AppleLogo className="w-6 h-6" />
-            <div className="text-left">
-              <div className="text-[10px] leading-none opacity-80">Baixar na</div>
-              <div className="text-sm leading-tight">App Store</div>
-            </div>
-          </Link>
-          <Link
-            href={LINKS.googlePlay}
-            className="inline-flex items-center gap-3 bg-text-primary text-background px-6 py-3.5 rounded-xl hover:opacity-90 transition-opacity font-semibold"
-          >
-            <GooglePlayLogo className="w-5 h-5" />
-            <div className="text-left">
-              <div className="text-[10px] leading-none opacity-80">Disponível no</div>
-              <div className="text-sm leading-tight">Google Play</div>
-            </div>
-          </Link>
+          <AppleLogo className="w-6 h-6 opacity-50" />
+          <div className="text-left">
+            <div className="text-[10px] leading-none opacity-60">Em breve na</div>
+            <div className="text-sm leading-tight">App Store</div>
+          </div>
         </div>
-      )}
-
-      {isDesktop && (
-        <p className="text-sm text-text-muted">
-          Ou escaneie o QR code abaixo com seu celular
-        </p>
-      )}
+        <div
+          className="inline-flex items-center gap-3 bg-text-primary/10 text-text-secondary px-6 py-3.5 rounded-xl border border-border cursor-default"
+        >
+          <GooglePlayLogo className="w-5 h-5 opacity-50" />
+          <div className="text-left">
+            <div className="text-[10px] leading-none opacity-60">Em breve no</div>
+            <div className="text-sm leading-tight">Google Play</div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

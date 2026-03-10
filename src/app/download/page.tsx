@@ -9,7 +9,7 @@ import { QRCode } from "@/components/shared/QRCode"
 export const metadata = createMetadata({
   title: "Download",
   description:
-    "Baixe o Yorubs gratuitamente para iOS e Android. Comece a aprender Yorùbá hoje com lições interativas, tutor IA e conteúdo cultural.",
+    "O Yorubs estará disponível em breve para iOS e Android. Aprenda Yorùbá com lições interativas, tutor IA e conteúdo cultural.",
   path: "/download",
 })
 
@@ -28,14 +28,14 @@ export default function DownloadPage() {
               as="h1"
               className="text-5xl md:text-6xl lg:text-7xl font-serif leading-tight tracking-tight"
             >
-              Comece Sua Jornada
+              Em Breve
             </TextReveal>
             <TextReveal
               as="p"
               className="text-xl md:text-2xl text-text-secondary mt-6 max-w-2xl mx-auto"
               stagger={0.03}
             >
-              Baixe o Yorubs gratuitamente e aprenda Yorùbá com lições interativas, tutor IA e conteúdo cultural.
+              O Yorubs estará disponível em breve para iOS e Android. Fique ligado!
             </TextReveal>
 
             <RevealOnScroll className="mt-10">
@@ -66,7 +66,7 @@ export default function DownloadPage() {
                   {
                     step: "1",
                     title: "Baixe o app",
-                    desc: "Disponível gratuitamente na App Store e Google Play.",
+                    desc: "Em breve na App Store e Google Play.",
                   },
                   {
                     step: "2",

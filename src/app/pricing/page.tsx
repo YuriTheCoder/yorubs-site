@@ -11,7 +11,7 @@ import { Shield, CreditCard, Mail } from "lucide-react"
 
 export const metadata = createMetadata({
   title: "Preços",
-  description: "Planos e preços do Yorubs. 4 planos: Gratuito, Língua (R$24,90/mês), Sagrado (R$49,90/mês) e Templo (R$99,90/mês).",
+  description: "Planos do Yorubs: Gratuito, Língua, Sagrado e Templo. Preços em breve.",
   path: "/pricing",
 })
 

@@ -1,10 +1,3 @@
-import Link from "next/link"
-import { LINKS } from "@/lib/constants"
-
-interface StoreBadgesProps {
-  className?: string
-}
-
 function AppleLogo({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 384 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -21,31 +14,31 @@ function GooglePlayLogo({ className }: { className?: string }) {
   )
 }
 
+interface StoreBadgesProps {
+  className?: string
+}
+
 export function StoreBadges({ className = "" }: StoreBadgesProps) {
   return (
     <div className={`flex flex-wrap items-center justify-center gap-3 sm:gap-4 ${className}`}>
-      <Link
-        href={LINKS.appStore}
-        className="flex items-center gap-3 bg-text-primary text-background px-5 py-3 rounded-xl hover:opacity-90 transition-opacity"
-        aria-label="Baixar na App Store"
+      <div
+        className="flex items-center gap-3 bg-text-primary/10 text-text-secondary px-5 py-3 rounded-xl border border-border cursor-default"
       >
-        <AppleLogo className="w-5 h-5" />
+        <AppleLogo className="w-5 h-5 opacity-50" />
         <div className="text-left">
-          <div className="text-[10px] leading-none">Baixar na</div>
+          <div className="text-[10px] leading-none opacity-60">Em breve na</div>
           <div className="text-sm font-semibold leading-tight">App Store</div>
         </div>
-      </Link>
-      <Link
-        href={LINKS.googlePlay}
-        className="flex items-center gap-3 bg-text-primary text-background px-5 py-3 rounded-xl hover:opacity-90 transition-opacity"
-        aria-label="Disponível no Google Play"
+      </div>
+      <div
+        className="flex items-center gap-3 bg-text-primary/10 text-text-secondary px-5 py-3 rounded-xl border border-border cursor-default"
       >
-        <GooglePlayLogo className="w-5 h-5" />
+        <GooglePlayLogo className="w-5 h-5 opacity-50" />
         <div className="text-left">
-          <div className="text-[10px] leading-none">Disponível no</div>
+          <div className="text-[10px] leading-none opacity-60">Em breve no</div>
           <div className="text-sm font-semibold leading-tight">Google Play</div>
         </div>
-      </Link>
+      </div>
     </div>
   )
 }
