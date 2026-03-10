@@ -18,9 +18,9 @@ export default function NotFound() {
   const orb1Ref = useRef<HTMLDivElement>(null)
   const orb2Ref = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
-  const linksRef = useRef<HTMLDivElement>(null)
+  const buttonsRef = useRef<HTMLDivElement>(null)
+  const quickLinksRef = useRef<HTMLDivElement>(null)
 
-  // Pick a random proverb
   const proverb = YORUBA_PROVERBS[Math.floor(Math.random() * YORUBA_PROVERBS.length)]
 
   useGSAP(() => {
@@ -28,7 +28,6 @@ export default function NotFound() {
 
     const tl = gsap.timeline({ defaults: { ease: "yorubs-smooth" } })
 
-    // Animate 404 number
     if (numbersRef.current) {
       tl.from(numbersRef.current, {
         scale: 0.5,
@@ -38,7 +37,6 @@ export default function NotFound() {
       })
     }
 
-    // Animate content
     if (contentRef.current) {
       tl.from(contentRef.current.children, {
         y: 40,
@@ -48,9 +46,8 @@ export default function NotFound() {
       }, "-=0.6")
     }
 
-    // Animate links
-    if (linksRef.current) {
-      tl.from(linksRef.current.children, {
+    if (buttonsRef.current) {
+      tl.from(buttonsRef.current.children, {
         y: 30,
         autoAlpha: 0,
         stagger: 0.08,
@@ -58,25 +55,25 @@ export default function NotFound() {
       }, "-=0.4")
     }
 
-    // Floating orbs
+    if (quickLinksRef.current) {
+      tl.from(quickLinksRef.current.children, {
+        y: 20,
+        autoAlpha: 0,
+        stagger: 0.06,
+        duration: 0.5,
+      }, "-=0.3")
+    }
+
     if (orb1Ref.current) {
       gsap.to(orb1Ref.current, {
-        y: -30,
-        x: 15,
-        duration: 4,
-        ease: "sine.inOut",
-        repeat: -1,
-        yoyo: true,
+        y: -30, x: 15, duration: 4,
+        ease: "sine.inOut", repeat: -1, yoyo: true,
       })
     }
     if (orb2Ref.current) {
       gsap.to(orb2Ref.current, {
-        y: 25,
-        x: -20,
-        duration: 5,
-        ease: "sine.inOut",
-        repeat: -1,
-        yoyo: true,
+        y: 25, x: -20, duration: 5,
+        ease: "sine.inOut", repeat: -1, yoyo: true,
       })
     }
   })
@@ -84,21 +81,21 @@ export default function NotFound() {
   return (
     <main
       ref={containerRef}
-      className="min-h-screen flex flex-col items-center justify-center px-4 relative overflow-hidden"
+      className="min-h-[100dvh] flex flex-col items-center justify-center px-5 sm:px-6 py-12 relative overflow-hidden"
     >
       {/* Floating orbs */}
       <div
         ref={orb1Ref}
-        className="absolute top-[15%] left-[10%] w-[300px] h-[300px] md:w-[500px] md:h-[500px] rounded-full bg-gold/[0.04] blur-[100px] pointer-events-none"
+        className="absolute top-[15%] left-[5%] w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[500px] md:h-[500px] rounded-full bg-gold/[0.04] blur-[80px] md:blur-[100px] pointer-events-none"
         aria-hidden="true"
       />
       <div
         ref={orb2Ref}
-        className="absolute bottom-[10%] right-[5%] w-[250px] h-[250px] md:w-[400px] md:h-[400px] rounded-full bg-terracotta/[0.03] blur-[80px] pointer-events-none"
+        className="absolute bottom-[10%] right-[5%] w-[180px] h-[180px] sm:w-[250px] sm:h-[250px] md:w-[400px] md:h-[400px] rounded-full bg-terracotta/[0.03] blur-[60px] md:blur-[80px] pointer-events-none"
         aria-hidden="true"
       />
 
-      {/* Decorative adire pattern line */}
+      {/* Top gradient line */}
       <div
         className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gold/20 to-transparent"
         aria-hidden="true"
@@ -106,17 +103,17 @@ export default function NotFound() {
 
       {/* Giant background text */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[30vw] md:text-[20vw] font-serif text-border/[0.04] select-none pointer-events-none whitespace-nowrap"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[40vw] sm:text-[30vw] md:text-[20vw] font-serif text-border/[0.04] select-none pointer-events-none whitespace-nowrap"
         aria-hidden="true"
       >
         Yorubs
       </div>
 
-      <div className="relative z-10 text-center max-w-2xl mx-auto">
+      <div className="relative z-10 text-center w-full max-w-lg sm:max-w-xl md:max-w-2xl mx-auto">
         {/* 404 number */}
         <h1
           ref={numbersRef}
-          className="text-[10rem] md:text-[14rem] font-serif leading-none tracking-tighter mb-2"
+          className="text-[7rem] sm:text-[10rem] md:text-[14rem] font-serif leading-none tracking-tighter mb-1 sm:mb-2"
           style={{
             background: "linear-gradient(135deg, #D4A853 0%, #C45B28 50%, #D4A853 100%)",
             WebkitBackgroundClip: "text",
@@ -129,30 +126,30 @@ export default function NotFound() {
 
         {/* Content */}
         <div ref={contentRef}>
-          <p className="text-xl md:text-2xl text-text-primary font-serif mb-3">
+          <p className="text-lg sm:text-xl md:text-2xl text-text-primary font-serif mb-2 sm:mb-3">
             Caminho não encontrado
           </p>
 
-          <p className="text-text-secondary mb-8 max-w-md mx-auto">
+          <p className="text-sm sm:text-base text-text-secondary mb-6 sm:mb-8 max-w-sm sm:max-w-md mx-auto px-2">
             Parece que você se perdeu nas encruzilhadas. Até Èṣù precisa de direções às vezes.
           </p>
 
           {/* Proverb card */}
-          <div className="bg-background-tertiary/50 border border-gold/10 rounded-2xl p-6 mb-10 backdrop-blur-sm max-w-lg mx-auto">
-            <p className="text-gold font-serif text-lg italic mb-2">
+          <div className="bg-background-tertiary/50 border border-gold/10 rounded-xl sm:rounded-2xl p-4 sm:p-6 mb-8 sm:mb-10 backdrop-blur-sm mx-auto">
+            <p className="text-gold font-serif text-base sm:text-lg italic mb-1.5 sm:mb-2 leading-relaxed">
               &ldquo;{proverb.yoruba}&rdquo;
             </p>
-            <p className="text-sm text-text-muted">
+            <p className="text-xs sm:text-sm text-text-muted">
               {proverb.translation}
             </p>
           </div>
         </div>
 
         {/* Action buttons */}
-        <div ref={linksRef} className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+        <div ref={buttonsRef} className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-10">
           <MagneticButton
             href="/"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gold text-background font-semibold rounded-full hover:bg-gold-light hover:shadow-glow-gold active:scale-95 transition-all duration-300"
+            className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 bg-gold text-background font-semibold rounded-full hover:bg-gold-light hover:shadow-glow-gold active:scale-95 transition-all duration-300 text-sm sm:text-base"
           >
             <Home className="w-4 h-4" />
             Voltar ao Início
@@ -160,7 +157,7 @@ export default function NotFound() {
 
           <MagneticButton
             href="/pre-registro"
-            className="inline-flex items-center gap-2 px-8 py-4 border border-gold/30 text-gold rounded-full hover:bg-gold/5 transition-all duration-300"
+            className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 border border-gold/30 text-gold rounded-full hover:bg-gold/5 transition-all duration-300 text-sm sm:text-base"
           >
             <BookOpen className="w-4 h-4" />
             Pré-Registro
@@ -168,20 +165,20 @@ export default function NotFound() {
         </div>
 
         {/* Quick links */}
-        <div ref={linksRef} className="flex flex-wrap items-center justify-center gap-6 text-sm">
-          <Link href="/features" className="flex items-center gap-1.5 text-text-muted hover:text-gold transition-colors">
+        <div ref={quickLinksRef} className="grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-x-4 gap-y-3 sm:gap-6 text-sm">
+          <Link href="/features" className="flex items-center justify-center sm:justify-start gap-1.5 text-text-muted hover:text-gold transition-colors">
             <Search className="w-3.5 h-3.5" />
             Recursos
           </Link>
-          <Link href="/blog" className="flex items-center gap-1.5 text-text-muted hover:text-gold transition-colors">
+          <Link href="/blog" className="flex items-center justify-center sm:justify-start gap-1.5 text-text-muted hover:text-gold transition-colors">
             <BookOpen className="w-3.5 h-3.5" />
             Blog
           </Link>
-          <Link href="/pricing" className="flex items-center gap-1.5 text-text-muted hover:text-gold transition-colors">
+          <Link href="/pricing" className="flex items-center justify-center sm:justify-start gap-1.5 text-text-muted hover:text-gold transition-colors">
             <ArrowLeft className="w-3.5 h-3.5" />
             Preços
           </Link>
-          <Link href="/faq" className="flex items-center gap-1.5 text-text-muted hover:text-gold transition-colors">
+          <Link href="/faq" className="flex items-center justify-center sm:justify-start gap-1.5 text-text-muted hover:text-gold transition-colors">
             <Search className="w-3.5 h-3.5" />
             FAQ
           </Link>
