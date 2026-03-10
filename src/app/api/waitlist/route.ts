@@ -134,7 +134,17 @@ export async function POST(req: NextRequest) {
       referralCode: data.referral_code,
       position: count || 0,
     })
-  } catch {
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Unknown error"
+    console.error("Waitlist POST error:", message)
+
+    if (message.includes("Missing Supabase")) {
+      return NextResponse.json(
+        { error: "Serviço temporariamente indisponível. Tente novamente mais tarde." },
+        { status: 503 }
+      )
+    }
+
     return NextResponse.json({ error: "Erro interno. Tente novamente." }, { status: 500 })
   }
 }

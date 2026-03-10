@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     viewTransition: true,
     optimizeCss: true,
   },
-  transpilePackages: ["gsap"],
+  transpilePackages: ["gsap", "@gsap/react"],
   redirects: async () => [
     {
       source: "/download",

@@ -45,18 +45,7 @@ export function Preloader() {
       delay: 0.1,
     })
 
-    tl.from(
-      "[data-hero-reveal]",
-      {
-        y: 80,
-        autoAlpha: 0,
-        stagger: 0.1,
-        duration: 1,
-        ease: "yorubs-smooth",
-      },
-      "-=0.3"
-    )
-  }, { scope: preloaderRef })
+  })
 
   return (
     <div
