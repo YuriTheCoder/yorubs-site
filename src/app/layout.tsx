@@ -38,13 +38,15 @@ export const metadata: Metadata = {
     title: "Yorubs — Aprenda Yorùbá de Forma Divertida",
     description:
       "O app gamificado para aprender a língua Yorùbá com tutor IA, provérbios diários e conteúdo cultural.",
-    images: [{ url: "/api/og", width: 1200, height: 630, alt: "Yorubs - Aprenda Yorùbá" }],
+    images: [
+      { url: "/images/og-image.png", width: 1200, height: 630, alt: "Yorubs — Aprenda Yorùbá de Forma Divertida" },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Yorubs — Aprenda Yorùbá de Forma Divertida",
     description: "App gamificado para aprender Yorùbá com IA.",
-    images: ["/api/og"],
+    images: [{ url: "/images/twitter-image.png", alt: "Yorubs — Aprenda Yorùbá de Forma Divertida" }],
   },
   robots: {
     index: true,
@@ -59,9 +61,14 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/images/logo.png", sizes: "any" },
+      { url: "/favicon.ico", sizes: "16x16 32x32", type: "image/x-icon" },
+      { url: "/images/icon-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/images/icon-512x512.png", sizes: "512x512", type: "image/png" },
     ],
-    apple: "/images/logo.png",
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
   },
   manifest: "/manifest.json",
 }
@@ -94,8 +101,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               applicationCategory: "EducationApplication",
               description:
                 "App gamificado para aprender a língua Yorùbá com tutor IA, provérbios diários e conteúdo cultural dos Òrìṣà.",
-              offers: { "@type": "Offer", price: "0", priceCurrency: "BRL" },
-              author: { "@type": "Organization", name: "Yorubs", url: "https://yorubs.com" },
+              image: "https://yorubs.com/images/og-image.png",
+              screenshot: "https://yorubs.com/images/og-image.png",
+              offers: { "@type": "Offer", price: "0", priceCurrency: "BRL", availability: "https://schema.org/PreOrder" },
+              author: {
+                "@type": "Organization",
+                name: "Yorubs",
+                url: "https://yorubs.com",
+                logo: "https://yorubs.com/images/icon-512x512.png",
+                sameAs: [
+                  "https://instagram.com/yorubs.app",
+                  "https://tiktok.com/@yorubsapp",
+                  "https://youtube.com/@yorubsapp",
+                  "https://x.com/yorubsapp",
+                ],
+              },
             }),
           }}
         />

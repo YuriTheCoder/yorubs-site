@@ -1,17 +1,26 @@
 {
-  "name": "Yorubs - Aprenda Yoruba",
+  "name": "Yorubs — Aprenda Yorùbá",
   "short_name": "Yorubs",
-  "description": "App gamificado para aprender a lingua Yoruba com tutor IA, proverbios diarios e conteudo cultural.",
+  "description": "App gamificado para aprender a língua Yorùbá com tutor IA, provérbios diários e conteúdo cultural dos Òrìṣà.",
   "start_url": "/",
   "display": "browser",
   "background_color": "#0A0A0F",
   "theme_color": "#0A0A0F",
   "icons": [
     {
-      "src": "/images/logo.png",
+      "src": "/images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/icon-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
-  "lang": "pt-BR"
+  "lang": "pt-BR",
+  "categories": ["education"],
+  "screenshots": []
 }
