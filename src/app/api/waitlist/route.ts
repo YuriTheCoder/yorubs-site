@@ -95,26 +95,22 @@ export async function POST(req: NextRequest) {
         referred_by: sanitizedRef,
         lgpd_consent: true,
       })
-      .select("referral_code")
+      .select("referral_code, queue_position")
       .single()
 
     if (error) {
-      // Duplicate email — return existing referral code
+      // Duplicate email — return existing referral code and real position
       if (error.code === "23505") {
         const { data: existing } = await supabase
           .from("waitlist")
-          .select("referral_code")
+          .select("referral_code, queue_position")
           .eq("email", email.toLowerCase().trim())
           .single()
-
-        const { count } = await supabase
-          .from("waitlist")
-          .select("*", { count: "exact", head: true })
 
         return NextResponse.json({
           success: true,
           referralCode: existing?.referral_code,
-          position: (count || 0) + WAITLIST_OFFSET,
+          position: (existing?.queue_position || 0) + WAITLIST_OFFSET,
           existing: true,
         })
       }
@@ -128,14 +124,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Erro ao cadastrar. Tente novamente." }, { status: 500 })
     }
 
-    const { count } = await supabase
-      .from("waitlist")
-      .select("*", { count: "exact", head: true })
-
     return NextResponse.json({
       success: true,
       referralCode: data.referral_code,
-      position: (count || 0) + WAITLIST_OFFSET,
+      position: (data.queue_position || 0) + WAITLIST_OFFSET,
     })
   } catch (err) {
     const message = err instanceof Error ? err.message : "Unknown error"
