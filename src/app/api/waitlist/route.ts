@@ -33,7 +33,7 @@ function isRateLimited(ip: string): boolean {
 }
 
 // Display offset — adds to the public-facing count only, not to the database
-const WAITLIST_OFFSET = 212
+const WAITLIST_OFFSET = 1247
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const VALID_SOURCES = ["organic", "instagram", "friend", "google", "tiktok", "blog", "other"]
