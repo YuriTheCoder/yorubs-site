@@ -57,7 +57,7 @@ export async function POST(req: NextRequest) {
     }
 
     const body = await req.json()
-    const { email, firstName, referralSource, utmSource, utmMedium, utmCampaign, referredBy, lgpdConsent } = body
+    const { email, firstName, whatsapp, referralSource, utmSource, utmMedium, utmCampaign, referredBy, lgpdConsent } = body
 
     // Validate email: type + regex + length
     if (typeof email !== "string" || email.length > 320 || !EMAIL_REGEX.test(email)) {
@@ -87,6 +87,7 @@ export async function POST(req: NextRequest) {
       .insert({
         email: email.toLowerCase().trim(),
         first_name: sanitize(firstName, 100),
+        whatsapp: sanitize(whatsapp, 20),
         referral_source: referralSource || null,
         utm_source: sanitize(utmSource, 200),
         utm_medium: sanitize(utmMedium, 200),

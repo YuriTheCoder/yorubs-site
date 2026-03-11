@@ -21,6 +21,7 @@ export function WaitlistForm() {
 
   const [email, setEmail] = useState("")
   const [firstName, setFirstName] = useState("")
+  const [whatsapp, setWhatsapp] = useState("")
   const [referralSource, setReferralSource] = useState("")
   const [lgpdConsent, setLgpdConsent] = useState(false)
   const [state, setState] = useState<FormState>("idle")
@@ -49,6 +50,7 @@ export function WaitlistForm() {
         body: JSON.stringify({
           email,
           firstName: firstName || undefined,
+          whatsapp: whatsapp || undefined,
           referralSource: referralSource || undefined,
           utmSource: utmSource || undefined,
           utmMedium: utmMedium || undefined,
@@ -189,6 +191,18 @@ export function WaitlistForm() {
           placeholder="Seu nome (opcional)"
           value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
+          className="w-full bg-background-tertiary border border-border rounded-xl px-4 py-3 text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
+        />
+      </div>
+
+      {/* WhatsApp (optional) */}
+      <div>
+        <input
+          type="tel"
+          placeholder="WhatsApp (opcional) — ex: 11999999999"
+          value={whatsapp}
+          onChange={(e) => setWhatsapp(e.target.value.replace(/[^0-9]/g, ""))}
+          maxLength={20}
           className="w-full bg-background-tertiary border border-border rounded-xl px-4 py-3 text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition-colors"
         />
       </div>
