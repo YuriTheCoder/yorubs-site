@@ -32,6 +32,9 @@ function isRateLimited(ip: string): boolean {
   return false
 }
 
+// Display offset — adds to the public-facing count only, not to the database
+const WAITLIST_OFFSET = 212
+
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const VALID_SOURCES = ["organic", "instagram", "friend", "google", "tiktok", "blog", "other"]
 
@@ -111,7 +114,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({
           success: true,
           referralCode: existing?.referral_code,
-          position: count || 0,
+          position: (count || 0) + WAITLIST_OFFSET,
           existing: true,
         })
       }
@@ -132,7 +135,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({
       success: true,
       referralCode: data.referral_code,
-      position: count || 0,
+      position: (count || 0) + WAITLIST_OFFSET,
     })
   } catch (err) {
     const message = err instanceof Error ? err.message : "Unknown error"
@@ -157,7 +160,7 @@ export async function GET() {
       .select("*", { count: "exact", head: true })
 
     return NextResponse.json(
-      { count: count || 0 },
+      { count: (count || 0) + WAITLIST_OFFSET },
       {
         headers: {
           "Cache-Control": "s-maxage=60, stale-while-revalidate=300",
